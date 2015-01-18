@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block body %}
+	<section id="map">
+	</section>
+	<section id="body">
+		<div class="container">
+			<div class="row">
+				<input class="slider" 	
+					data-slider-min="0" 
+					data-slider-max="60"
+					data-slider-value="5">
+			</div>
+			{% for item in data %}
+				<a href="{{ item['url'] }}">{{ item['title'] }}</a>
+				<p>{{ item['real_date'] }} | {{ item['location_name']}}</p>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

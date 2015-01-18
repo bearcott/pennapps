@@ -1,0 +1,7 @@
+DEBUG = True
+EVERYBLOCK_KEY = [key]
+GOOGLEMAPS_KEY = [key]
+TWITTER_KEY = [key]
+MONGO_DBNAME = 'dbname'
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017
