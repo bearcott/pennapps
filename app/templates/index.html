@@ -4,16 +4,48 @@
 	</section>
 	<section id="body">
 		<div class="container">
+			<!--
 			<div class="row">
 				<input class="slider" 	
-					data-slider-min="0" 
-					data-slider-max="60"
-					data-slider-value="5">
+					data-slider-min="1" 
+					data-slider-max="6"
+					data-slider-value="{{ days }}">
 			</div>
+		-->
 			{% for item in data %}
-				<a href="{{ item['url'] }}">{{ item['title'] }}</a>
-				<p>{{ item['real_date'] }} | {{ item['location_name']}}</p>
+			<div class="row plate">
+				<a href="{{ item['url'] }}" target="_blank"><h2>{{ item['title'] }}</h2></a>
+				<div class="biline"><p>{{ item['real_date'] }} | {{ item['location_name'] }} Philadelphia, PA 
+					<b class="
+					{% if item['twitter']['mentions'] > 5 and item['twitter']['mentions'] <= 10 %}
+						green
+					{% elif item['twitter']['mentions'] >= 10 and item['twitter']['mentions'] < 20 %}
+						yellowish
+					{% elif item['twitter']['mentions'] >= 20 and item['twitter']['mentions'] < 50 %}
+						yellow
+					{% elif item['twitter']['mentions'] >= 50 and item['twitter']['mentions'] < 100 %}
+						redish
+					{% elif item['twitter']['mentions'] >= 100 %}
+						red
+					{% endif %}
+
+						">{{ item['twitter']['mentions'] }} mentions</b>
+				</p>
+				</div>
+				<div class="content">
+					{% for tweet in item['twitter']['tweets'] %}
+					<a class="tag" href="http://twitter.com/{{ tweet['screen_name'] }}/status/{{ tweet['id'] }}" target="_blank">{{ tweet['name'] }}</a>
+					{% endfor %}
+				</div>
+			</div>
 			{% endfor %}
 		</div>
 	</section>
+	<script>
+		var locations = [
+		{% for item in data %}
+	      ["{{ safetitle }}", {{ item['coords']['lat'] }},{{ item['coords']['lng'] }},1],
+	    {% endfor %}
+	    ];
+	</script>
 {% endblock %}

@@ -1,3 +1,64 @@
+body {
+	font-size: 14pt;
+	color: #333;
+	background: #F8F8F8;
+}
+a, h2 {
+	transition: all 200ms ease-in-out;
+	&:hover {
+		text-decoration: none;
+	}
+}
 #map {
-	height: 300px;
+	height: 600px;
+}
+.container {
+	width: 700px;
+	border-top: 50px solid #FFF;
+	background: #FFF;
+	top: -50px;
+	position: relative;
+	box-shadow: 0 40px 0 15px rgba(0,0,0,0.05);
+}
+.plate {
+	padding: 0 50px;
+	h2 {
+		font-size: 1.5em;
+		color: #FFBD40;
+		&:hover {
+			color: #FFDA75;
+			text-decoration: none;
+		}
+	}
+	.biline {
+		color: #bbb;
+		font-size: 1em;
+	}
+	.tag {
+		background: #eee;
+		padding: 5px;
+		color: #ccc;
+		border-radius: 3px;
+		display: inline-block;
+		margin: 5px 0;
+		&:hover {
+			background: #FEC253;
+			color: #FFEABB;
+		}
+	}
+	.green {
+		color: #BAE192;
+	}
+	.yellowish {
+		color: #F4E25E;
+	}
+	.yellow {
+		color: #F4C428;
+	}
+	.redish {
+		color: #F48E28;
+	}
+	.red {
+		color: #F42828;
+	}
 }
