@@ -40,8 +40,6 @@ class twitter():
 			return []
 
 class fetchData:
-	def __init__(self):
-		self.token = twitter().getToken()
 
 	def addTwitter(self, token, item):
 		tweets = []
@@ -84,9 +82,9 @@ class fetchData:
 			r = requests.get(url, params=params, headers=headers).json()
 			while True:
 				#refresh the token
-				self.token = twitter().getToken()
+				token = twitter().getToken()
 				for item in r['results']:
-					self.addTwitter(self.token, item)
+					self.addTwitter(token, item)
 					self.getGeo(item)
 					mongo.db.articles.insert(item)
 
